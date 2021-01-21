@@ -20,6 +20,13 @@ type SplitParams = {
 class iTermy {
   private scripts: string[] = []
 
+  public newWindow = (panes: Pane[], options?: InstanceOptions) => {
+    this.createNewWindow()
+    this.newTab(panes, options)
+    this.closeFirstTab()
+    return this
+  }
+
   public newTab = (panes: Pane[], options?: InstanceOptions) => {
     const tabId = this.createNewTab()
 
@@ -79,6 +86,24 @@ class iTermy {
 
   private getPaneId = (tabId: string, paneId: number, subPaneId?: number) => {
     return [tabId, paneId, subPaneId].join('_')
+  }
+
+  private createNewWindow = () => {
+    this.scripts.push(`
+      set newWindow to (create window with profile "${ITERM_PROFILE}")
+    `)
+
+    return this
+  }
+
+  private closeFirstTab = () => {
+    this.scripts.push(`
+      tell the first tab
+        close
+      end tell
+    `)
+
+    return this
   }
 
   private createNewTab = () => {

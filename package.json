@@ -1,8 +1,11 @@
 {
   "name": "@kykungz/itermy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "iTerm2 tabs and panes automation",
   "author": "Kongpon Charanwattanakit <jackykongpon@gmail.com>",
+  "contributors": [
+    "Catherine Davie <catherine@weconnectrecovery.com>"
+  ],
   "homepage": "https://github.com/kykungz/itermy#readme",
   "license": "ISC",
   "main": "dist/index.js",
@@ -26,6 +29,7 @@
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
     "build": "tsc",
+    "prepare": "yarn build",
     "release": "yarn build && np"
   },
   "dependencies": {

@@ -31,6 +31,8 @@ itermy()
   .start()
 ```
 
+You can call `newWindow` instead of `newTab` to use a new window.
+
 ## Examples
 
 ### Simple two pane window
