@@ -29,6 +29,7 @@
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
     "build": "tsc",
+    "prepack": "yarn build",
     "prepare": "yarn build",
     "release": "yarn build && np"
   },
